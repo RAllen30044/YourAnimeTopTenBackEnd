@@ -13,11 +13,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-  })
-);
+app.use(cors());
 
 const animeController = Router();
 const authController = Router();
@@ -40,17 +36,19 @@ app.post(
   "/sendEmail",
   validateRequest({
     body: z.object({
-      text: z.string(),
+      title: z.string(),
+      mediaType: z.string(),
     }),
   }),
   (req: Request, res: Response) => {
-    const { text } = req.body;
+    const { title, mediaType } = req.body;
 
     const mailOptions = {
       from: process.env.EMAIL,
       to: process.env.EMAIL,
       subject: "ANIME ENTRY REQUEST",
-      text: text,
+      text: `Title: ${title}
+Media Type: ${mediaType}`,
     };
     if (!mailOptions) {
       return res.status(400).json({ message: "Invalid email" });
