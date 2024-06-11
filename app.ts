@@ -36,19 +36,50 @@ app.post(
   "/sendEmail",
   validateRequest({
     body: z.object({
-      title: z.string(),
-      mediaType: z.string(),
+      title1: z.string(),
+      mediaType1: z.string(),
+      title2: z.string(),
+      mediaType2: z.string(),
+      title3: z.string(),
+      mediaType3: z.string(),
+      title4: z.string(),
+      mediaType4: z.string(),
+      title5: z.string(),
+      mediaType5: z.string(),
     }),
   }),
   (req: Request, res: Response) => {
-    const { title, mediaType } = req.body;
+    const {
+      title1,
+      mediaType1,
+      title2,
+      mediaType2,
+      title3,
+      mediaType3,
+      title4,
+      mediaType4,
+      title5,
+      mediaType5,
+    } = req.body;
 
     const mailOptions = {
       from: process.env.EMAIL,
       to: process.env.EMAIL,
       subject: "ANIME ENTRY REQUEST",
-      text: `Title: ${title}
-Media Type: ${mediaType}`,
+      text: `Title: ${title1}
+Media Type: ${mediaType1}
+
+Title: ${title2}
+Media Type: ${mediaType2}
+
+Title: ${title3}
+Media Type: ${mediaType3}
+
+Title: ${title4}
+Media Type: ${mediaType4}
+
+Title: ${title5}
+Media Type: ${mediaType5}`,
     };
     if (!mailOptions) {
       return res.status(400).json({ message: "Invalid email" });
