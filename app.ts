@@ -46,6 +46,8 @@ app.post(
       mediaType4: z.string(),
       title5: z.string(),
       mediaType5: z.string(),
+      title6: z.string(),
+      mediaType6: z.string(),
     }),
   }),
   (req: Request, res: Response) => {
@@ -60,6 +62,8 @@ app.post(
       mediaType4,
       title5,
       mediaType5,
+      title6,
+      mediaType6,
     } = req.body;
 
     const mailOptions = {
@@ -79,7 +83,10 @@ Title: ${title4}
 Media Type: ${mediaType4}
 
 Title: ${title5}
-Media Type: ${mediaType5}`,
+Media Type: ${mediaType5},
+
+Title: ${title6}
+Media Type: ${mediaType6}`,
     };
     if (!mailOptions) {
       return res.status(400).json({ message: "Invalid email" });
