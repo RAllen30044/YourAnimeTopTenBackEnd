@@ -6,11 +6,14 @@
   "scripts": {
     "seed": "ts-node loadAnime.ts",
     "studio": "prisma studio",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node app.js"
   },
   "author": "Robert Allen",
   "license": "ISC",
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.7",
     "@types/node": "^20.12.12",
     "@types/xmldom": "^0.1.34",
     "prisma": "^5.14.0",

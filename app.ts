@@ -70,23 +70,46 @@ app.post(
       from: process.env.EMAIL,
       to: process.env.EMAIL,
       subject: "ANIME ENTRY REQUEST",
-      text: `Title: ${title1}
-Media Type: ${mediaType1}
+      html: `<div><ol>
+      <li><h2>Title: ${title1}</h2>
+      <h2>Media Type: ${mediaType1}</h2>
+      </li> 
+      <li><h2>Title: ${title2}</h2>
+      <h2>Media Type: ${mediaType2}</h2>
+      </li> 
+      <li><h2>Title: ${title3}</h2>
+      <h2>Media Type: ${mediaType3}</h2>
+      </li> 
+      <li><h2>Title: ${title4}</h2>
+      <h2>Media Type: ${mediaType4}</h2>
+      </li> 
+      <li><h2>Title: ${title5}</h2>
+      <h2>Media Type: ${mediaType5}</h2>
+      </li> 
+      <li><h2>Title: ${title6}</h2>
+      <h2>Media Type: ${mediaType6}</h2>
+      </li> 
+  
+      </ol>
+      
+      </div>`,
+      //       text:`<h2>Title: ${title1}
+      // Media Type: ${mediaType1}
 
-Title: ${title2}
-Media Type: ${mediaType2}
+      // Title: ${title2}
+      // Media Type: ${mediaType2}
 
-Title: ${title3}
-Media Type: ${mediaType3}
+      // Title: ${title3}
+      // Media Type: ${mediaType3}
 
-Title: ${title4}
-Media Type: ${mediaType4}
+      // Title: ${title4}
+      // Media Type: ${mediaType4}
 
-Title: ${title5}
-Media Type: ${mediaType5},
+      // Title: ${title5}
+      // Media Type: ${mediaType5},
 
-Title: ${title6}
-Media Type: ${mediaType6}`,
+      // Title: ${title6}
+      // Media Type: ${mediaType6}</h2>`,
     };
     if (!mailOptions) {
       return res.status(400).json({ message: "Invalid email" });
